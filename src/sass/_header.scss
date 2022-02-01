@@ -9,11 +9,15 @@
     z-index: 1;
     transition: top .5s ease, background-color .2s linear 0s;
   
-    background-color: rgba(255,255,255,.3);
+    //background-color: rgba(255,255,255,.3);
   
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @include respond-to(phone) {
+      background-color: $color-primary-dark;
+    }
 
     @include respond-to(no-phone) {
       &--dark {
@@ -93,6 +97,12 @@
 
     @include respond-to(tab-port) {
       margin: 0 1rem;
+    }
+
+    @include respond-to(phone) {
+      visibility: visible;
+      opacity: 1;
+      position: static;
     }
 
     @include respond-to(no-phone) {
