@@ -28,6 +28,10 @@
     text-decoration: none;
     transition: all .2s ease;
 
+    @include respond-to(tab-port) {
+      padding: 0 2rem;
+    }
+
     &:hover,
     &:active {
       transform: rotate(-5deg) scale(1.3);

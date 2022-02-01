@@ -2,7 +2,17 @@
   max-width: 72rem;
   margin: 2rem auto;
 
+  @include respond-to(tab-port) {
+    padding: 0 4rem; 
+  }
+
+  @include respond-to(phone) {
+    padding: 0 2rem; 
+  }
+
   &__heading {
     text-align: center;
   }
+
+  
 }

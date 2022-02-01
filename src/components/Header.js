@@ -12,17 +12,19 @@ function Header() {
         <a href="/" className="header__logo">
           KALIBER
         </a>
-        <nav className="navigation">
+        <div className="navigation">
           {/* <nav className={`nav ${up ? 'stickyNavUp' : ''} ${down ? 'stickyNavDown' : ''}`}>navigation</nav> */}
-          <a href="#" className="navigation__item">Lorem</a>
-          <a href="#" className="navigation__item">Ipsum</a>
-          <a href="#" className="navigation__item">Dolor</a>
-          <a href="#" className="navigation__item">Sit</a>
-          <a href="#" className="navigation__item">Amet</a>
+          <nav className="navigation__list">
+            <a href="#" className="navigation__item">Lorem</a>
+            <a href="#" className="navigation__item">Ipsum</a>
+            <a href="#" className="navigation__item">Dolor</a>
+            <a href="#" className="navigation__item">Sit</a>
+            <a href="#" className="navigation__item">Amet</a>
+          </nav>
           <button className="navigation__button">
             <span className="navigation__icon">&nbsp;</span>
           </button>
-        </nav>
+        </div>
         
       </div>
       <div className="header__image-container"></div>
