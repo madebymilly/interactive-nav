@@ -1,8 +1,9 @@
 .navigation {
 
   display: flex;
-  //justify-content: space-between;
-  //align-items: center;
+  margin-right: 6rem;
+  // margin-right: 0;
+  // transition: margin 0.5s ease 1s;
 
   &__list {
     display: flex;
@@ -69,63 +70,6 @@
     }
   }
 
-  &__button {
-    position: relative;
-    width: 4rem;
-    height: 4rem;
-    background-color: $color-primary; 
-    border: 0;
-    margin: 0 1.8rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
 
-    &:hover {
-      background-color: $color-primary-dark;
-    }
-
-    @include respond-to(tab-port) {
-      margin: 0 1rem;
-    }
-  
-  }
-
-  &__icon {
-    position: relative;
-    margin-top: 1rem;
-
-    &,
-    &::before,
-    &::after {
-      width: 1.8rem;
-      height: 3px;
-      background-color: $color-grey-light-1;
-      display: inline-block;
-    }
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      transition: all .2s;
-    }
-
-    &::before { top: -.7rem; }
-    &::after { top: .7rem; }
-  }
-
-  &__button:active &__icon::before {
-    top: 0;
-    transform: rotate(135deg);
-  }
-
-  &__button:active &__icon::after {
-    top: 0;
-    transform: rotate(-135deg);
-  }
-
-  &__button:active &__icon {
-    background-color: transparent;
-  }
 
 }
