@@ -42,10 +42,10 @@ function Header() {
   return (
     <header className="header">
       <div 
-        className={`header__nav-bar ${isHeaderDark && 'header__nav-bar--dark'} ${isHeaderHidden && 'header__nav-bar--hidden'}`} 
+        className={`header__nav-bar ${isHeaderDark ? 'header__nav-bar--dark' : ''} ${isHeaderHidden ? 'header__nav-bar--hidden' : ''}`} 
         ref={headerRef}
       >
-        <a href="/" className={`header__logo ${isHeaderHidden && 'header__logo--dark'}`}>
+        <a href="/" className={`header__logo ${isHeaderHidden ? 'header__logo--dark' : ''}`}>
           KALIBER
         </a>
 
@@ -60,9 +60,9 @@ function Header() {
         </div>
 
         <button 
-          className={`header__button ${isHeaderHidden && 'header__button--shown header__button--fixed'} ${isHeaderDark && 'header__button--shown'}`} 
+          className={`header__button ${isHeaderHidden ? 'header__button--shown header__button--fixed' : ''} ${isHeaderDark ? 'header__button--shown' : ''}`} 
           onClick={handleClick}>
-          <span className={`header__icon ${isNavOpen && 'header__icon--close'}`}>&nbsp;</span>
+          <span className={`header__icon ${isNavOpen ? 'header__icon--close' : ''}`}>&nbsp;</span>
         </button>
         
       </div>
