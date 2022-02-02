@@ -97,7 +97,6 @@
     margin: 2rem 1.8rem 0;
     cursor: pointer;
     transition: background-color .3s ease;
-    overflow: hidden;
 
     &--mobile {
       display: none;
@@ -119,7 +118,7 @@
     }
 
     @include respond-to(tab-port) {
-      margin: 0 1rem;
+      margin: 2rem 1rem 0;
     }
 
     @include respond-to(phone) {

@@ -24,22 +24,23 @@
     margin: 0 3.6rem;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: $color-grey-light-1;
     letter-spacing: 1px;
 
     @include respond-to(tab-port) {
       margin: 0 2rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
 
     @include respond-to(phone) {
       display: block;
       width: 100%;
+      font-size: 1.6rem;
 
       &:not(:last-child) {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
       }
 
       &::before {
