@@ -2,13 +2,11 @@
 // DESKTOP FIRST
 
 /*
-
 0-600 phone
 600-900 tab-port
 900-1200 tablet landscape
 *[1200-1800] tab-land
 1800+ big
-
 */
 
 @mixin respond-to($breakpoint) {

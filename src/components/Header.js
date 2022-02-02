@@ -12,12 +12,6 @@ function Header() {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    setHeaderHeight(headerRef.current.clientHeight);
-  }, []);
-
   const handleClick = () => {
     setIsHeaderHidden(!isHeaderHidden);
   }
@@ -26,6 +20,12 @@ function Header() {
     setIsMobileNavOpen(!isMobileNavOpen);
   }
 
+  // Set header height to use it in 'useInView' for rootMargin:
+  const headerRef = useRef(null);
+  useEffect(() => {
+    setHeaderHeight(headerRef.current.clientHeight);
+  }, []);
+
   const { ref, inView, entry } = useInView({
     rootMargin: '-' + headerHeight + 'px'
   });
@@ -33,6 +33,7 @@ function Header() {
   const scrolledUp = useScrollingUp();
   const scrolledDown = useScrollingDown();
 
+  // Check if header is dark and/or header is hidden based on scroll & if header image is inview:
   useEffect(() => {
     if(!inView) {
       setIsHeaderDark(true);

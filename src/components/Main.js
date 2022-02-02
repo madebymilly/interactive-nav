@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Main() {
-  return <div>
+  return (
     <main>
       <div className="content">
         <h1 className="content__heading heading-primary">
@@ -22,5 +22,5 @@ export default function Main() {
         <p>In odio neque, dapibus non odio finibus, convallis vestibulum est. Donec metus nulla, gravida id ante sed, maximus suscipit elit. Curabitur et enim eu nisl laoreet dapibus in nec lorem. Sed eu convallis eros. Quisque ultricies mi vel commodo rhoncus. Curabitur id pharetra dui. Aliquam in porta diam, id venenatis quam.</p>
       </div>
     </main>
-  </div>;
+  );
 }
