@@ -8,6 +8,7 @@ function Header() {
   const [headerHeight, setHeaderHeight] = useState(0);
   const [isHeaderDark, setIsHeaderDark] = useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const headerRef = useRef(null);
 
@@ -17,6 +18,10 @@ function Header() {
 
   const handleClick = () => {
     setIsHeaderHidden(!isHeaderHidden);
+  }
+
+  const handleClickMobile = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
   }
 
   const { ref, inView, entry } = useInView({
@@ -51,7 +56,7 @@ function Header() {
           KALIBER
         </a>
 
-        <div className="navigation">
+        <div className={`navigation ${isMobileNavOpen ? 'navigation--open' : ''}`}>
           <nav className="navigation__list">
             <a href="#lorem" className="navigation__item">Lorem</a>
             <a href="#ipsum" className="navigation__item">Ipsum</a>
@@ -65,6 +70,12 @@ function Header() {
           className={`header__button ${isHeaderHidden ? 'header__button--shown header__button--fixed' : ''} ${isHeaderDark ? 'header__button--shown' : ''}`} 
           onClick={handleClick}>
           <span className={`header__icon ${!isHeaderHidden && isHeaderDark ? 'header__icon--close' : ''}`}>&nbsp;</span>
+        </button>
+
+        <button 
+          className="header__button header__button--mobile"
+          onClick={handleClickMobile}>
+          <span className={`header__icon ${isMobileNavOpen ? 'header__icon--close' : ''}`}>&nbsp;</span>
         </button>
         
       </div>
