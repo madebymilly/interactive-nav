@@ -3,6 +3,8 @@ import { useInView } from 'react-intersection-observer';
 import useScrollingUp from '../hooks/useScrollingUp';
 import useScrollingDown from '../hooks/useScrollingDown';
 
+import Navigation from './Navigation';
+
 function Header() {
 
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -56,15 +58,7 @@ function Header() {
           KALIBER
         </a>
 
-        <div className={`navigation ${isMobileNavOpen ? 'navigation--open' : ''}`}>
-          <nav className="navigation__list">
-            <a href="#lorem" className="navigation__item">Lorem</a>
-            <a href="#ipsum" className="navigation__item">Ipsum</a>
-            <a href="#dolor" className="navigation__item">Dolor</a>
-            <a href="#sit" className="navigation__item">Sit</a>
-            <a href="#amet" className="navigation__item">Amet</a>
-          </nav>
-        </div>
+        <Navigation isMobileNavOpen={isMobileNavOpen} />
 
         <button 
           className={`header__button ${isHeaderHidden ? 'header__button--shown header__button--fixed' : ''} ${isHeaderDark ? 'header__button--shown' : ''}`} 
