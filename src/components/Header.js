@@ -6,7 +6,6 @@ import useScrollingDown from '../hooks/useScrollingDown';
 function Header() {
 
   const [headerHeight, setHeaderHeight] = useState(0);
-  const [isNavOpen, toggleIsNavOpen] = useState(false); // Hook?
   const [isHeaderDark, setIsHeaderDark] = useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 
@@ -17,8 +16,7 @@ function Header() {
   }, []);
 
   const handleClick = () => {
-    toggleIsNavOpen(!isNavOpen);
-    setIsHeaderHidden(isNavOpen);
+    setIsHeaderHidden(!isHeaderHidden);
   }
 
   const { ref, inView, entry } = useInView({
@@ -30,23 +28,16 @@ function Header() {
 
   useEffect(() => {
     if(!inView) {
-      // console.log('scrolled up', scrolledUp);
-      // console.log('scrolled down', scrolledDown);
-      // console.log('isNavOpen', isNavOpen);
       setIsHeaderDark(true);
-      toggleIsNavOpen(true);
       if ( scrolledUp ) {
         setIsHeaderDark(true)
         setIsHeaderHidden(false);
-        toggleIsNavOpen(true);
       } else if ( scrolledDown ) {
         setIsHeaderHidden(true);
-        toggleIsNavOpen(false);
       }
     } else {
       setIsHeaderHidden(false);
       setIsHeaderDark(false);
-      toggleIsNavOpen(false);
     }
   }, [inView, scrolledUp, scrolledDown]);
 
@@ -73,7 +64,7 @@ function Header() {
         <button 
           className={`header__button ${isHeaderHidden ? 'header__button--shown header__button--fixed' : ''} ${isHeaderDark ? 'header__button--shown' : ''}`} 
           onClick={handleClick}>
-          <span className={`header__icon ${isNavOpen ? 'header__icon--close' : ''}`}>&nbsp;</span>
+          <span className={`header__icon ${!isHeaderHidden && isHeaderDark ? 'header__icon--close' : ''}`}>&nbsp;</span>
         </button>
         
       </div>
