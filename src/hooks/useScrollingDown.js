@@ -1,25 +1,30 @@
-import { useEffect, useState } from 'react'
-import { off, on } from '../utils'
+import { useEffect, useState } from 'react';
+
 /**
  * useScrollingDown custom react hook
  * @returns {boolean}
  */
+
 const useScrollingDown = () => {
-  let prevScroll = window.pageYOffset
-  const [scrollingUp, setScrollingUp] = useState(false)
+  let prevScroll = window.pageYOffset;
+
+  const [scrollingDown, setScrollingDown] = useState(false);
+
   const handleScroll = () => {
-    const currScroll = window.pageYOffset
-    const isScrolled = prevScroll < currScroll
-    setScrollingUp(isScrolled)
-    prevScroll = currScroll
+    const currScroll = window.pageYOffset;
+    const isScrolled = prevScroll < currScroll;
+    setScrollingDown(isScrolled);
+    prevScroll = currScroll;
   }
+
   useEffect(() => {
-    on(window, 'scroll', handleScroll, { passive: true })
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      off(window, 'scroll', handleScroll, { passive: true })
+      window.addEventListener('scroll', handleScroll, { passive: true });
     }
-  }, [])
-  return scrollingUp
+  }, []);
+
+  return scrollingDown;
 }
 
-export default useScrollingDown
+export default useScrollingDown;

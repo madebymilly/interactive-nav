@@ -16,12 +16,8 @@
       top: 8rem;
       right: 0;
       display: block;
-      background-image: linear-gradient(
-        to right bottom, 
-        rgba($color-primary-light, .8),
-        rgba($color-primary-dark, .8));
+      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
       padding: 2rem 0;
-      
     }
   }
 
@@ -70,6 +66,15 @@
     }
   }
 
+  @include respond-to(phone) {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear .3s, opacity .3s ease;
 
-
+    &--open {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s linear 0s, opacity .3s;
+    }
+  }
 }

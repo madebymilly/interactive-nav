@@ -69,13 +69,18 @@
       to right bottom, 
       rgba($color-primary-dark, .8),
       rgba($color-primary-light, .8)), 
-      url(../img/header-2-large.jpg);
+      url(../img/header-large.jpg);
     background-size: cover;
     background-position: center;
 
     @include respond-to(phone) {
       height: 20rem;
       margin-top: 8rem;
+      background-image: linear-gradient(
+      to right bottom, 
+      rgba($color-primary-dark, .8),
+      rgba($color-primary-light, .8)), 
+      url(../img/header.jpg);
     }
   }
 

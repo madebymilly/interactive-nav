@@ -4,7 +4,10 @@ export default function Main() {
   return <div>
     <main>
       <div className="content">
-        <h1 className="content__heading">Lorem ipsum</h1>
+        <h1 className="content__heading heading-primary">
+          <span className="heading-primary__main">Lorem ipsum dolor</span>
+          <span className="heading-primary__sub">sit amet</span>
+        </h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida facilisis erat, et fermentum mauris mollis sed. Praesent tempus nunc ac lacinia dictum. Ut consectetur iaculis est nec posuere. Suspendisse massa massa, consectetur commodo dapibus hendrerit, aliquet at lectus. Mauris nec varius massa, id varius diam. Aenean mi odio, dignissim eu libero malesuada, ullamcorper dictum enim. Aenean blandit lectus placerat aliquet laoreet. Nunc volutpat sem in magna pharetra, porttitor tempor leo ullamcorper. In quis ante nulla.</p>
         <p>Nulla feugiat neque eu pellentesque mattis. Suspendisse est dolor, porttitor non felis a, eleifend elementum diam. Maecenas convallis tincidunt nisl, vel sodales tellus laoreet in. Mauris fringilla aliquet justo, id placerat nibh porttitor at. Proin gravida sit amet diam ut ultricies. Mauris lacinia rutrum ligula, eget cursus enim accumsan eget. Nulla maximus quam in odio fringilla, sed hendrerit sapien gravida. Proin at venenatis velit, eu varius nibh. Aliquam at lectus fermentum, elementum odio vitae, porttitor elit.</p>
         <p>Nam auctor lacus id purus pulvinar euismod. Ut nec cursus augue. Nulla at elit condimentum, maximus mi vel, pretium mi. Nullam nunc eros, euismod vitae sem eu, pretium laoreet magna. In hac habitasse platea dictumst. Donec nec magna ac lorem gravida porttitor ut a sem. Pellentesque at rutrum ipsum, sit amet pulvinar tortor. Phasellus ac aliquet sem, molestie imperdiet mauris. Maecenas augue ex, lacinia non tellus non, tempor pretium risus. In porta tincidunt neque a bibendum. Fusce at dolor sed tellus venenatis ornare. Fusce eu lacus at risus imperdiet condimentum eget ut purus.</p>
