@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { off, on } from '../utils'
 /**
- * useScrollingUp custom react hook
+ * useScrollingDown custom react hook
  * @returns {boolean}
  */
 const useScrollingDown = () => {

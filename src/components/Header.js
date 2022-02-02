@@ -6,7 +6,9 @@ import useScrollingDown from '../hooks/useScrollingDown';
 function Header() {
 
   const [headerHeight, setHeaderHeight] = useState(0);
-  const [isNavOpen, toggleIsNavOpen] = useState(false); // HOOK MAKEN
+  const [isNavOpen, toggleIsNavOpen] = useState(false); // Hook?
+  const [isHeaderDark, setIsHeaderDark] = useState(false);
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 
   const headerRef = useRef(null);
 
@@ -15,8 +17,8 @@ function Header() {
   }, []);
 
   const handleClick = () => {
-    console.log('click')
     toggleIsNavOpen(!isNavOpen);
+    setIsHeaderHidden(isNavOpen);
   }
 
   const { ref, inView, entry } = useInView({
@@ -26,18 +28,27 @@ function Header() {
   const scrolledUp = useScrollingUp();
   const scrolledDown = useScrollingDown();
 
-  let isHeaderDark = false;
-  let isHeaderHidden = false;
-
-  if ( !inView ) {
-    if ( scrolledUp || isNavOpen ) {
-      isHeaderDark = true;
-    } else if ( scrolledDown ) {
-      isHeaderHidden = true;
+  useEffect(() => {
+    if(!inView) {
+      // console.log('scrolled up', scrolledUp);
+      // console.log('scrolled down', scrolledDown);
+      // console.log('isNavOpen', isNavOpen);
+      setIsHeaderDark(true);
+      toggleIsNavOpen(true);
+      if ( scrolledUp ) {
+        setIsHeaderDark(true)
+        setIsHeaderHidden(false);
+        toggleIsNavOpen(true);
+      } else if ( scrolledDown ) {
+        setIsHeaderHidden(true);
+        toggleIsNavOpen(false);
+      }
+    } else {
+      setIsHeaderHidden(false);
+      setIsHeaderDark(false);
+      toggleIsNavOpen(false);
     }
-  } else {
-    isHeaderDark = false;
-  }
+  }, [inView, scrolledUp, scrolledDown]);
 
   return (
     <header className="header">
