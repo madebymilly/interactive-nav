@@ -1,3 +1,58 @@
+@import "mixins";
+@import "variables";
+
 .menuButton {
-  border: 1px solid red;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  background-color: $color-primary-dark; 
+  border: 0;
+  margin: 2rem 1.8rem 0;
+  cursor: pointer;
+  transition: background-color .3s ease;
+
+  &:hover {
+    background-color: $color-primary;
+  }
+
+  @include respond-to(tab-port) {
+    margin: 2rem 1rem 0;
+  }
+
+  @include respond-to(phone) {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+    display: none;
+    margin: 0 2rem 0 0;
+  }
+
+}
+
+.menuButtonShown {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menuButtonFixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.menuButtonMobile {
+  display: none;
+
+  @include respond-to(phone) {
+    display: block;
+    background-color: $color-primary; 
+
+    &:hover {
+      background-color: $color-primary-dark; 
+    }
+  }
 }
