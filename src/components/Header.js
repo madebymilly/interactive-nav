@@ -4,6 +4,7 @@ import useScrollingUp from '../hooks/useScrollingUp';
 import useScrollingDown from '../hooks/useScrollingDown';
 
 import Navigation from './Navigation';
+import MenuButton from './MenuButton';
 
 function Header() {
 
@@ -61,17 +62,7 @@ function Header() {
 
         <Navigation isMobileNavOpen={isMobileNavOpen} />
 
-        <button 
-          className={`header__button ${isHeaderHidden ? 'header__button--shown header__button--fixed' : ''} ${isHeaderDark ? 'header__button--shown' : ''}`} 
-          onClick={handleClick}>
-          <span className={`header__icon ${!isHeaderHidden && isHeaderDark ? 'header__icon--close' : ''}`}>&nbsp;</span>
-        </button>
-
-        <button 
-          className="header__button header__button--mobile"
-          onClick={handleClickMobile}>
-          <span className={`header__icon ${isMobileNavOpen ? 'header__icon--close' : ''}`}>&nbsp;</span>
-        </button>
+        <MenuButton handleClick={handleClick} handleClickMobile={handleClickMobile} isHeaderDark={isHeaderDark} isHeaderHidden={isHeaderHidden} isMobileNavOpen={isMobileNavOpen} />
         
       </div>
       <div className="header__image-container" ref={ref}></div>
