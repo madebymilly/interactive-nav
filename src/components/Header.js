@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import useScrollingUp from '../hooks/useScrollingUp';
 import useScrollingDown from '../hooks/useScrollingDown';
+import useScrolling from '../hooks/useScrolling';
 
 import Navigation from './Navigation';
 
@@ -34,20 +35,31 @@ function Header() {
   const scrolledDown = useScrollingDown();
 
   // Check if header is dark and/or header is hidden based on scroll & if header image is inview:
+
+  // useEffect(() => {
+  //   if(!inView) {
+  //     setIsHeaderDark(true);
+  //     if ( scrolledUp ) {
+  //       setIsHeaderDark(true)
+  //       setIsHeaderHidden(false);
+  //     } else if ( scrolledDown ) {
+  //       setIsHeaderHidden(true);
+  //     }
+  //   } else {
+  //     setIsHeaderHidden(false);
+  //     setIsHeaderDark(false);
+  //   }
+  // }, [inView, scrolledUp, scrolledDown]);
+
   useEffect(() => {
-    if(!inView) {
-      setIsHeaderDark(true);
-      if ( scrolledUp ) {
-        setIsHeaderDark(true)
-        setIsHeaderHidden(false);
-      } else if ( scrolledDown ) {
-        setIsHeaderHidden(true);
-      }
-    } else {
-      setIsHeaderHidden(false);
-      setIsHeaderDark(false);
-    }
+    setIsHeaderDark(!inView);
+    setIsHeaderHidden(!inView && !scrolledUp);
   }, [inView, scrolledUp, scrolledDown]);
+
+
+  // TEST:
+  const scrolled = useScrolling();
+  console.log(scrolled);
 
   return (
     <header className="header">
