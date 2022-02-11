@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSpring, animated, config } from 'react-spring'
 import { useInView } from 'react-intersection-observer';
 import useScrollingUp from '../hooks/useScrollingUp';
 import useScrollingDown from '../hooks/useScrollingDown';
@@ -12,6 +13,8 @@ function Header() {
   const [isHeaderDark, setIsHeaderDark] = useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+
 
   const handleClick = () => {
     setIsHeaderHidden(!isHeaderHidden);
@@ -56,6 +59,14 @@ function Header() {
     setIsHeaderHidden(!inView && !scrolledUp);
   }, [inView, scrolledUp, scrolledDown]);
 
+  const headerSpringProps = useSpring({
+    to: {
+      top: isHeaderHidden ? '-8rem' : '0rem',
+      //backgroundColor: isHeaderDark ? '#1260cc' : 'transparent'
+    },
+    //config: config.stiff,
+
+  });
 
   // TEST:
   const scrolled = useScrolling();
@@ -63,8 +74,9 @@ function Header() {
 
   return (
     <header className="header">
-      <div 
-        className={`header__nav-bar ${isHeaderDark ? 'header__nav-bar--dark' : ''} ${isHeaderHidden ? 'header__nav-bar--hidden' : ''}`} 
+      <animated.div 
+        className={`header__nav-bar`} 
+        style={headerSpringProps}
         ref={headerRef}
       >
         <a href="/" className={`header__logo ${isHeaderHidden ? 'header__logo--dark' : ''}`}>
@@ -85,7 +97,7 @@ function Header() {
           <span className={`header__icon ${isMobileNavOpen ? 'header__icon--close' : ''}`}>&nbsp;</span>
         </button>
         
-      </div>
+      </animated.div>
       <div className="header__image-container" ref={ref}></div>
     </header>
   );

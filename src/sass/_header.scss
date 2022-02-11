@@ -8,7 +8,9 @@
     height: 8rem;
     z-index: 1;
     transition: top .5s ease, background-color .2s linear 0s;
-  
+
+    background-color: $color-primary-dark;
+    
     display: flex;
     align-items: center;
     justify-content: flex-end;
