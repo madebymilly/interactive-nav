@@ -59,18 +59,17 @@ function Header() {
     setIsHeaderHidden(!inView && !scrolledUp);
   }, [inView, scrolledUp, scrolledDown]);
 
+  // TEST:
+  const scrolled = useScrolling();
+  console.log(scrolled);
+
   const headerSpringProps = useSpring({
     to: {
       top: isHeaderHidden ? '-8rem' : '0rem',
       //backgroundColor: isHeaderDark ? '#1260cc' : 'transparent'
     },
     //config: config.stiff,
-
   });
-
-  // TEST:
-  const scrolled = useScrolling();
-  console.log(scrolled);
 
   return (
     <header className="header">
